@@ -15,9 +15,6 @@ namespace JoinINN.Controllers
         {
             ViewBag.Title = "Home Page";
 
-            var groups = socRep.GetUserWithThisId(2);
-            socRep.AddNewGroup();
-
             return View();
         }
     }

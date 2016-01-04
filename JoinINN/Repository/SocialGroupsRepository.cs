@@ -18,17 +18,17 @@ namespace JoinINN.Repository
             }
         }
 
-        public bool AddNewGroup()//SocialGroup newUser, ICollection<int> idsOfAffinities
+        public bool AddNewGroup(SocialGroup socGroup)//SocialGroup newUser, ICollection<int> idsOfAffinities
         {
-            var socGroup = new SocialGroup()
-            {
-                Name = "description",
-                EmailAddress = " jSJAjsja",
-                Description = "s ajjaj",
-                IsAssociation = false,
-                IsSchool = true,
-                CityId = 1
-            };
+            //var socGroup = new SocialGroup()
+            //{
+            //    Name = "description",
+            //    EmailAddress = " jSJAjsja",
+            //    Description = "s ajjaj",
+            //    IsAssociation = false,
+            //    IsSchool = true,
+            //    CityId = 1
+            //};
 
             using (var context = new JoinINN.Infrastructure.GroupsDb())
             {

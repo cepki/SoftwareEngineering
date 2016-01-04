@@ -27,7 +27,7 @@ namespace JoinINN.Controllers.api
             {
                 //var dataUser = UserMapper.Map(newUser);
                 //var idsOfAffinities = newUser.AffinityTypes.Select(x => x.Id).ToList<int>();
-                //userRepo.AddNewUser(dataUser, idsOfAffinities);
+                groupsRepository.AddNewGroup(newUser);
                 var response = this.Request.CreateResponse(HttpStatusCode.Created, true);
                 return response;
             }

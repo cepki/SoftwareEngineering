@@ -26,7 +26,7 @@
         $scope.chosenAffinity = affinity;
     })
 
-    $http.get('api//GetAllGroups')
+    $http.get('api/SocialGroupsApi/GetAllGroups')
     .then(function (result) {
         $scope.groupsToShow = result.data;
         angular.forEach(result.data, function (value) {
@@ -117,14 +117,11 @@
 
     
     $scope.submitUserForm = function () {
-        console.log($scope.affinities);
+        console.log("Ide submit");
 
         var user = {
-            FirstName: $scope.firstname,
-            LastName: $scope.lastname,
             Username: $scope.username,
-            Password: $scope.password,
-            GroupName: $scope.groupname,
+            Name: $scope.groupname,
             ContactNumber: $scope.contactnumber,
             EmailAddress: $scope.emailaddress,
             OfficialWebUrl: $scope.officialweburl,
@@ -139,7 +136,7 @@
         }
 
 
-        $http.post('api/UsersApi/MakeNewUser', user)
+        $http.post('api/SocialGroupsApi/MakeNewUser', user)
         .success(function () {
             console.log("Uspilo");
         })
@@ -192,13 +189,6 @@
         })
     }
 
-})
-
-.controller('bravoDianaController', function (ngDialog) {
-    ngDialog
-            .open({
-                templateUrl: '/HtmlTemplates/dianica.html',
-            })
 })
 
 .controller('adminController', function ($scope, $http, $cookies, $location) {
