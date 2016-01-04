@@ -4,15 +4,16 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace JoinINN
+namespace JoinINN.Repository
 {
-    public class Service
+    public class AffinitiesRepository
     {
-        public List<SocialGroup> GetAllGroups()
+        public ICollection<AffinityType> GetAllAffinityTypes()
         {
             using (var context = new JoinINN.Infrastructure.GroupsDb())
             {
-                return context.SocialGroups.ToList();
+                return context.AffinityTypes
+                    .ToList();
             }
         }
     }
