@@ -13,6 +13,7 @@ namespace JoinINN.Repository
         {
             using (var context = new JoinINN.Infrastructure.GroupsDb())
             {
+                var nesto = context.SocialGroups.ToList()[0];
                 return context.SocialGroups
                     .ToList();
             }

@@ -22,7 +22,7 @@ namespace DataStorage
         public int CityId { get; set; }
         public string photoUrl { get; set; }
 
-        public ICollection<AffinityType> AffinityTypes { get; set; }
+        public AffinityType AffinityType { get; set; }
         public City City { get; set; }
     }
 }

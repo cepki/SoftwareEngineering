@@ -28,6 +28,9 @@
 
     $http.get('api/SocialGroupsApi/GetAllGroups')
     .then(function (result) {
+
+        console.log(result.data);
+
         $scope.groupsToShow = result.data;
         angular.forEach(result.data, function (value) {
             allGroups.push(value);
@@ -120,8 +123,9 @@
         console.log("Ide submit");
 
         var user = {
-            Username: $scope.username,
+            //Username: $scope.username,
             Name: $scope.groupname,
+            Password: $scope.password,
             ContactNumber: $scope.contactnumber,
             EmailAddress: $scope.emailaddress,
             OfficialWebUrl: $scope.officialweburl,
