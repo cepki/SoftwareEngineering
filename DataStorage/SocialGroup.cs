@@ -21,6 +21,7 @@ namespace DataStorage
         public bool IsAssociation { get; set; }
         public int CityId { get; set; }
         public string photoUrl { get; set; }
+        public int AffinityType_Id { get; set; }
 
         public AffinityType AffinityType { get; set; }
         public City City { get; set; }

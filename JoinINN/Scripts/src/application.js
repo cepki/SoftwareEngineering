@@ -20,11 +20,6 @@
         templateUrl: '/HtmlTemplates/login.html'
     })
 
-    $routeProvider.when('/bravoDiana', {
-        templateUrl: '/HtmlTemplates/diana.html',
-        controller: 'bravoDianaController'
-    })
-
     $routeProvider.when('/adminPage', {
         templateUrl: '/HtmlTemplates/admin.html',
         controller: 'adminController'

@@ -101,7 +101,7 @@
 })
 
 .controller('secondController', function ($scope, $http) {
-
+    var choise = 1;
     var affinities = [];
     $scope.isschool = true.toString();
 
@@ -135,7 +135,7 @@
             IsSchool: ($scope.isschool == "true"),
             IsAssociation: !($scope.isschool == "true"),
             CityId: $scope.chosenCity.Id,
-            AffinityTypes: affinities,
+            AffinityType_Id: choise,
             photoUrl: $scope.photourl
         }
 
@@ -148,21 +148,11 @@
             console.log("Nije uspilo");
         })
     }
-
-    $scope.addAffinity = function(affinity)
+   
+    $scope.type = function(id)
     {
-        if(affinities.indexOf(affinity) > -1)
-        {
-            affinities.splice(affinities.indexOf(affinity), 1);
-        }
-        else
-        {
-            affinities.push(affinity);
-        }
-
-        console.log(affinities);
+        choise = id;
     }
-
 })
 
 .controller('thirdController', function ($scope, $http, $routeParams) {
@@ -171,7 +161,7 @@
     
 })
 
-.controller('loginController', function ($scope, $http, $rootScope, $location, $cookies) {
+.controller('loginController', function ($scope, $http, $rootScope, $location, $cookies, $timeout) {
     $scope.login = function()
     {
         var user = {
@@ -181,10 +171,14 @@
 
         $http.post('/api/LoginApi/SignIn', user)
         .success(function () {
+
             $http.get('/api/LoginApi/WhoAmI')
-            .then(function(result){
+            .then(function (result) {
+                console.log(result.data);
                 $cookies.putObject("logedUser", result.data);
-                $location.path("/");
+                $timeout(function () {
+                    $location.path("/");
+                },2000)
             })
         })
         .error(function () {

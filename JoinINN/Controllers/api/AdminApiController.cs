@@ -17,7 +17,6 @@ namespace JoinINN.Controllers.api
         {
             var test = adminRepository.AdminDeleteUser(id);
 
-
             if (test == true)
             {
                 return this.Request.CreateResponse(HttpStatusCode.Accepted, true);

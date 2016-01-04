@@ -223,10 +223,31 @@
         </div>
 
         <div id="chosingAffinities">
-            <div id="contentOfChoingAffinities" ng-repeat="affinity in affinities">
-                <input type="checkbox" name="affinities" ng-click="addAffinity(affinity)"/> {{affinity.Name}}
+            <div id="contentOfChoingAffinities">
+                <input type="radio" checked name="isType" ng-click="type(1)" value="true">Sport
+                <br />
+                <input type="radio" name="isType" ng-click="type(2)" value="false"> Umjetnost
+                <br />
+                <input type="radio" checked name="isType" ng-click="type(3)" value="true">Glazba
+                <br />
+                <input type="radio" name="isType" ng-click="type(4)" value="false"> Volontiranje
+                <br />
+                <input type="radio" checked name="isType" ng-click="type(5)" value="true">Strani jezici
+                <br />
+                <input type="radio" name="isType" ng-click="type(6)" value="false"> Obrazovanje
+                <br />
+                <input type="radio" checked name="isType" ng-click="type(7)" value="true">Tehnologija
+                <br />
+                <input type="radio" name="isType" ng-click="type(8)" value="false"> Zdravlje
             </div>
         </div>
+
+        <!--<div id="chosingAffinities">
+        <div id="contentOfChoingAffinities" ng-repeat="affinity in affinities">
+            <input type="checkbox" name="affinities" ng-click="addAffinity(affinity)"/> {{affinity.Name}}
+        </div>
+            </div>-->
+    
 
             <br />
 

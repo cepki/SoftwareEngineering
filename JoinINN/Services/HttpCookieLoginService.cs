@@ -24,7 +24,15 @@ namespace JoinINN.Services
         public void SignIn(string username, bool isSessionLong)
         {
             var cookieValue = string.Format(username);
-            FormsAuthentication.SetAuthCookie(cookieValue, true);
+            try
+            {
+                FormsAuthentication.SetAuthCookie(cookieValue, true);
+            }
+            catch(Exception e)
+            {
+
+            }
+            
         }
 
         public void SignOut()
