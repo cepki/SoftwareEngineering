@@ -1,0 +1,71 @@
+﻿<!DOCTYPE html>
+<style>
+    .groups {
+        width: 38%;
+        height: 300px;
+        border: solid;
+        display: inline-block;
+        margin-left: 5%;
+        margin-bottom: 20px;
+    }
+
+    #showGroups {
+        margin-left: 5%;
+        margin-right: 10%;
+    }
+
+    #loadingMoreFrames{
+        margin-left: 40%;
+    }
+
+    .framepicture{
+        margin-left:10%;
+        margin-right:10%;
+        margin-top: 10%;
+        height: 150px;
+        width: 80%;
+    }
+
+    .groupNameInFrame, .findMore {
+        margin-left: 40%
+    }
+
+    .form-group{
+        margin-left: 40%;
+    }
+</style >
+<body>
+
+    <div class="form-group">
+        <select ng-model="chosenCity" ng-options="city.Name for city in allCities" required></select>
+        <br />
+    </div>
+
+    <div class="form-group">
+        <select ng-model="chosenAffinity" ng-options="affinity.Name for affinity in allAffinities" required></select>
+        <br />
+    </div>
+
+    <input type="text" placeholder="Unesite ime za pretragu" ng-model="searchedText" style="margin-left: 40%" />
+
+    <input type="button" value="Pretrazi" ng-click="FindWithThisCondition()" />
+
+    <br />
+    <br />
+
+    <div id="showGroups">
+        <div ng-repeat="group in groupsToShow  | limitTo:limit" class="groups">
+            <img ng-src="{{group.photoUrl}}" alt="Nema slike" class="framepicture" />
+            <h2 class="groupNameInFrame">{{group.GroupName}}</h2>
+            <h4 class="findMore" ng-click="nesto(group)">Saznaj vise</h4>
+        </div>
+    </div>
+
+    <input type="button" ng-click="readAll()" value="IzlistajSve" ng-show="!areAllLoaded" id="loadingMoreFrames" />
+
+    <hr />
+    <hr />
+    <hr />
+    <input type="button" ng-click="idemo()" value="test" style="margin-left: 40%;"/>
+
+</body>

@@ -1,0 +1,248 @@
+﻿<!DOCTYPE html>
+<head>
+    <title>HEEH</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+</head>
+<style>
+    #chosingTypeOfAssociation {
+        border: solid;
+        border-width: 1px;
+        width: 150px;
+    }
+
+    #contentOfChosingTypeOfAssociation {
+        margin-left: 12px;
+    }
+
+</style>
+<body>
+    <br />
+    <br />
+    <br />
+    <div><h1>Unesite podatke</h1></div>
+
+    <form angular-validator-submit="submitUserForm()" name="userForm" class="form-horizontal" novalidate angular-validator>
+        
+        <div class="form-group">
+            <label class="col-sm-2 control-label">Ime:</label>
+            <div class="col-sm-10">
+                <input type="text"
+                       name="name"
+                       class="form-control"
+                       ng-model="firstname"
+                       ng-model-options="{updateOn: 'blur'}"
+                       ng-pattern=" /^[a-zA-ZČčĆćŽžĐđŠšŽž]{3,25}$/"
+                       invalid-message="'Ime mora imati minimum 3, a maksimum 25 znakova'"
+                       required-message="'Obavezno polje'"
+                       validate-on="dirty"
+                       required>
+            
+            
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-sm-2 control-label">Prezime:</label>
+            <div class="col-sm-10">
+                <input type="text"
+                       name="lastname"
+                       class="form-control"
+                       ng-model="lastname"
+                       ng-model-options="{updateOn: 'blur'}"
+                       ng-pattern="/^[a-zA-ZČčĆćŽžĐđŠšŽž]{3,25}$/"
+                       invalid-message="'Prezime mora imati minimum 3, a maksimum 25 znakova'"
+                       required-message="'Obavezno polje'"
+                       validate-on="dirty"
+                       required>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-sm-2 control-label">Username:</label>
+            <div class="col-sm-10">
+                <input type="text"
+                       name="username"
+                       class="form-control"
+                       ng-model="username"
+                       ng-model-options="{updateOn: 'blur'}"
+                       ng-pattern="/^[0-9a-zA-ZČčĆćŽžĐđŠšŽž]{5,25}$/"
+                       invalid-message="'Username mora imati minimum 5 znakova'"
+                       required-message="'Obavezno polje'"
+                       validate-on="dirty"
+                       required>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-sm-2 control-label">Password:</label>
+            <div class="col-sm-10">
+                <input type="password"
+                       name="password"
+                       class="form-control"
+                       ng-model="password"
+                       ng-model-options="{updateOn: 'blur'}"
+                       ng-pattern="/^[0-9a-zA-ZČčĆćŽžĐđŠšŽž]{8,25}$/"
+                       invalid-message="'Password mora imati minimum 8, a maksimum 25 znakova'"
+                       required-message="'Obavezno polje'"
+                       validate-on="dirty"
+                       required>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-sm-2 control-label">Ime udruge:</label>
+            <div class="col-sm-10">
+                <input type="text"
+                       name="groupname"
+                       class="form-control"
+                       ng-model="groupname"
+                       ng-model-options="{updateOn: 'blur'}"
+                       ng-pattern="/^[0-9a-zA-ZČčĆćŽžĐđŠšŽž]{2,}$/"
+                       invalid-message="'Udruga mora imati bar 2 slova'"
+                       required-message="'Obavezno polje'"
+                       validate-on="dirty"
+                       required>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-sm-2 control-label">Kontakt broj:</label>
+            <div class="col-sm-10">
+                <input type="text"
+                       name="contactnumber"
+                       class="form-control"
+                       ng-model="contactnumber"
+                       ng-model-options="{updateOn: 'blur'}"
+                       ng-pattern="/^[0-9+]{6,10}$/"
+                       invalid-message="'Broj mora imati izmedu 6 i 10 brojeva.'"
+                       required-message="'Obavezno polje'"
+                       validate-on="dirty"
+                       required>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-sm-2 control-label">Email adresa:</label>
+            <div class="col-sm-10">
+                <input type="text"
+                       name="email"
+                       class="form-control"
+                       ng-model="emailaddress"
+                       ng-model-options="{updateOn: 'blur'}"
+                       ng-pattern="/^([0-9]|[a-z]|[.-_])+([a-z]|[0-9])+@[a-z]+\.[a-z]{2,4}$/"
+                       invalid-message="'Email adresa mora imati oblik nesto@nesto.com'"
+                       required-message="'Obavezno polje'"
+                       validate-on="dirty"
+                       required>
+
+
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-sm-2 control-label">URI oficijalne stranice:</label>
+            <div class="col-sm-10">
+                <input type="text"
+                       name="officaluri"
+                       class="form-control"
+                       ng-model="officialweburl"
+                       ng-model-options="{updateOn: 'blur'}"
+                       required-message="'Obavezno polje'"
+                       validate-on=" dirty"
+                       required>
+
+
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-sm-2 control-label">Link facebook stranice:</label>
+            <div class="col-sm-10">
+                <input type="text"
+                       name="facebooklink"
+                       class="form-control"
+                       ng-model="facebookpageurl"
+                       ng-model-options="{updateOn: 'blur'}"
+                       required-message="'Obavezno polje'"
+                       validate-on="dirty"
+                       required>
+
+
+            </div>
+        </div>
+
+        
+        <div class="form-group">
+            <label class="col-sm-2 control-label">Email adresa udruge:</label>
+            <div class="col-sm-10">
+                <input type="text"
+                       name="groupemail"
+                       class="form-control"
+                       ng-model="groupemailaddress"
+                       ng-model-options="{updateOn: 'blur'}"
+                       ng-pattern="/^([0-9]|[a-z]|[.-_])+([a-z]|[0-9])+@[a-z]+\.[a-z]{2,4}$/"
+                       invalid-message="'Email adresa mora imati oblik nesto@nesto.com'"
+                       required-message="'Obavezno polje'"  
+                       validate-on="dirty"
+                       required>                
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-sm-2 control-label">Opis:</label>
+            <div class="col-sm-10">
+                <textarea cols="40" rows="10"
+                          name="description"
+                          class="form-control"
+                          ng-model="description"
+                          ng-model-options="{updateOn: 'blur'}"
+                          ng-pattern="/^[0-9a-zA-ZČčĆćŽžĐđŠšŽž]{50,10000}$/"
+                          invalid-message="'Opis mora imati bar 50 znakova'"
+                          required-message="'Obavezno polje'"
+                          validate-on="dirty"
+                          required
+                          ></textarea>
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            Grad:<select ng-model="chosenCity" ng-options="city.Name for city in cities" required></select>
+            <br />
+        </div>
+
+        <div id="chosingTypeOfAssociation">
+            <div id="contentOfChosingTypeOfAssociation">
+                <input type="radio" checked name="isschool" ng-model="isschool" value="true">Škola
+                <br />
+                <input type="radio" name="isschool" ng-model="isschool" value="false"> Udruga
+            </div>
+        </div>
+
+        <div id="chosingAffinities">
+            <div id="contentOfChoingAffinities" ng-repeat="affinity in affinities">
+                <input type="checkbox" name="affinities" ng-click="addAffinity(affinity)"/> {{affinity.Name}}
+            </div>
+        </div>
+
+            <br />
+
+            <div class="form-group">
+
+            </div>
+
+            <br />
+            <button type="button" ng-click="userForm.reset()" class="btn btn-primary">Reset</button>
+            <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+
+
+    <br />
+    <br />
+    <br />
+    <input type="button" value="proba" ng-click="nesto()" />
+</body>

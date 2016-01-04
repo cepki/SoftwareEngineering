@@ -218,6 +218,9 @@
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="css\ngDialog-theme-default.css" />
+    <Content Include="css\ngDialog-theme-plain.css" />
+    <Content Include="css\ngDialog.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -225,6 +228,14 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <None Include="Scripts\jquery-2.1.4.intellisense.js" />
+    <Content Include="HtmlTemplates\admin.html" />
+    <Content Include="HtmlTemplates\diana.html" />
+    <Content Include="HtmlTemplates\Dianica.html" />
+    <Content Include="HtmlTemplates\login.html" />
+    <Content Include="HtmlTemplates\main.html" />
+    <Content Include="HtmlTemplates\second.html" />
+    <Content Include="HtmlTemplates\test.html" />
+    <Content Include="HtmlTemplates\third.html" />
     <Content Include="Scripts\jquery-2.1.4.min.js" />
     <Content Include="Scripts\src\application.js" />
     <Content Include="Scripts\src\controllers.js" />

@@ -1,0 +1,24 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+<body>
+    <div class="groupDetailsFrame">
+        <img ng-src="{{ngDialogData.photoUrl}}" alt="No picture to show" style="width: 300px; height:300px" />
+        <div id="textAboutGroup">
+            <h3>Ime: {{ngDialogData.GroupName}}</h3>
+            <h4>Telefton: {{ngDialogData.ContactNumber}}</h4>
+            <h4>Email: {{ngDialogData.GroupEmailAddress}}</h4>
+            <h4>Adresa: {{ngDialogData.Address}}</h4>
+            <h4><a ng-href="{{ngDialogData.FacebookPageUrl}}" target="_blank">Facebook</a>&nbsp;&nbsp;<a href="{{ngDialogData.OfficitalWebUrl}}" target="_blank">Službena</a></h4>
+        </div>
+        <p id="affinities">Affinities</p>
+        <ul ng-repeat="affinity in ngDialogData.AffinityTypes">
+            <li>{{affinity.Name}}</li>
+        </ul>
+        <h4>Opis: {{ngDialogData.Description}}</h4>
+
+    </div>
+</body>
+</html>
