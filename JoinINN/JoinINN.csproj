@@ -205,12 +205,18 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\api\AdminApiController.cs" />
+    <Compile Include="Controllers\api\AffinitiesApiController.cs" />
+    <Compile Include="Controllers\api\CitiesApiController.cs" />
+    <Compile Include="Controllers\api\LoginApiController.cs" />
+    <Compile Include="Controllers\api\SocialGroupsApiController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Infrastructure\GroupsDb.cs" />
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\LogedUser.cs" />
+    <Compile Include="Models\LoginModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repository\AdminRepository.cs" />
     <Compile Include="Repository\AffinitiesRepository.cs" />
@@ -218,6 +224,7 @@
     <Compile Include="Repository\MixedRepository.cs" />
     <Compile Include="Repository\SocialGroupsRepository.cs" />
     <Compile Include="Results\ChallengeResult.cs" />
+    <Compile Include="Services\HttpCookieLoginService.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -427,7 +434,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

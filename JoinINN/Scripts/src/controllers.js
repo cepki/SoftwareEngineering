@@ -26,7 +26,7 @@
         $scope.chosenAffinity = affinity;
     })
 
-    $http.get('api/UsersApi/GetAllGroups')
+    $http.get('api//GetAllGroups')
     .then(function (result) {
         $scope.groupsToShow = result.data;
         angular.forEach(result.data, function (value) {
