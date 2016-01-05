@@ -1,4 +1,5 @@
-﻿using JoinINN.Models;
+﻿using DataStorage;
+using JoinINN.Models;
 using JoinINN.Repository;
 using JoinINN.Services;
 using System;
@@ -50,11 +51,25 @@ namespace JoinINN.Controllers.api
             return logedInUser;
         }
 
-        [HttpDelete]
+        [HttpGet]
         public void SignOut()
         {
             loginService.SignOut();
         }
 
+
+        [HttpGet]
+        public SocialGroup GetLogedUser()
+        {
+            using (var context = new JoinINN.Infrastructure.GroupsDb())
+            {
+                var logedInUserByUsername = loginService.TryGetSignedInUserId();
+
+                var me = context.SocialGroups
+                    .Include("AffinityType")
+                    .FirstOrDefault(x => x.EmailAddress == logedInUserByUsername);
+                return me;
+            }
+        }
     }
 }

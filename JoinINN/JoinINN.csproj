@@ -241,6 +241,7 @@
     </Content>
     <None Include="Scripts\jquery-2.1.4.intellisense.js" />
     <Content Include="HtmlTemplates\admin.html" />
+    <Content Include="HtmlTemplates\edit.html" />
     <Content Include="HtmlTemplates\login.html" />
     <Content Include="HtmlTemplates\main.html" />
     <Content Include="HtmlTemplates\second.html" />

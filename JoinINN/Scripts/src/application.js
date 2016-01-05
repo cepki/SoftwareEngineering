@@ -24,6 +24,16 @@
         templateUrl: '/HtmlTemplates/admin.html',
         controller: 'adminController'
     })
+
+    $routeProvider.when('/logout', {
+        template: "",
+        controller: "logoutController"
+    })
+
+    $routeProvider.when('/edit', {
+        templateUrl: '/HtmlTemplates/edit.html',
+        controller: 'editProfileController'
+    });
 })
 
 .run(function ($rootScope, $cookies) {

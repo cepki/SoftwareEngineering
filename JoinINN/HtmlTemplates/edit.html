@@ -17,7 +17,6 @@
     #contentOfChosingTypeOfAssociation {
         margin-left: 12px;
     }
-
 </style>
 <body>
     <br />
@@ -25,8 +24,8 @@
     <br />
     <div><h1>Unesite podatke</h1></div>
 
-    <form angular-validator-submit="submitUserForm()" name="userForm" class="form-horizontal" novalidate angular-validator>
-        
+    <form angular-validator-submit="submitUserForm(userForm)" name="userForm" class="form-horizontal" novalidate angular-validator>
+
         <!--<div class="form-group">
             <label class="col-sm-2 control-label">Ime:</label>
             <div class="col-sm-10">
@@ -40,11 +39,10 @@
                        required-message="'Obavezno polje'"
                        validate-on="dirty"
                        required>
-            
-            
+
+
             </div>
         </div>-->
-
         <!--<div class="form-group">
             <label class="col-sm-2 control-label">Prezime:</label>
             <div class="col-sm-10">
@@ -60,7 +58,6 @@
                        required>
             </div>
         </div>-->
-
         <!--<div class="form-group">
             <label class="col-sm-2 control-label">Username:</label>
             <div class="col-sm-10">
@@ -99,12 +96,29 @@
                        name="password"
                        class="form-control"
                        ng-model="password"
+                       ng-model-options="{debounce: 1000}"
+                       ng-pattern="/^[0-9a-zA-ZČčĆćŽžĐđŠšŽž]{8,25}$/"
+                       invalid-message="'Password mora imati minimum 8, a maksimum 25 znakova'"
+                       required-message="'Obavezno polje'"
+                       validate-on="dirty"
+                       >
+            </div>
+        </div>
+
+        <div class="form-group" >
+            <label class="col-sm-2 control-label">Novi password:</label>
+            <div class="col-sm-10">
+                <input type="password"
+                       name="newPassword"
+                       ng-disabled="!isOldPasswordCorrect"
+                       class="form-control"
+                       ng-model="newPassword"
                        ng-model-options="{updateOn: 'blur'}"
                        ng-pattern="/^[0-9a-zA-ZČčĆćŽžĐđŠšŽž]{8,25}$/"
                        invalid-message="'Password mora imati minimum 8, a maksimum 25 znakova'"
                        required-message="'Obavezno polje'"
                        validate-on="dirty"
-                       required>
+                       >
             </div>
         </div>
 
@@ -151,7 +165,7 @@
                        ng-model="officialweburl"
                        ng-model-options="{updateOn: 'blur'}"
                        required-message="'Obavezno polje'"
-                       validate-on=" dirty"
+                       validate-on="dirty"
                        required>
 
 
@@ -174,7 +188,7 @@
             </div>
         </div>
 
-        
+
         <!--<div class="form-group">
             <label class="col-sm-2 control-label">Email adresa udruge:</label>
             <div class="col-sm-10">
@@ -185,9 +199,9 @@
                        ng-model-options="{updateOn: 'blur'}"
                        ng-pattern="/^([0-9]|[a-z]|[.-_])+([a-z]|[0-9])+@[a-z]+\.[a-z]{2,4}$/"
                        invalid-message="'Email adresa mora imati oblik nesto@nesto.com'"
-                       required-message="'Obavezno polje'"  
+                       required-message="'Obavezno polje'"
                        validate-on="dirty"
-                       required>                
+                       required>
             </div>
         </div>-->
 
@@ -199,46 +213,31 @@
                           class="form-control"
                           ng-model="description"
                           ng-model-options="{updateOn: 'blur'}"
-                          ng-pattern="/^[0-9a-zA-ZČčĆćŽžĐđŠšŽž., ]{50,10000}$/"
-                          invalid-message="'Opis mora imati bar 50 znakova'"
+                          ng-pattern="/^[0-9a-zA-ZČčĆćŽžĐđŠšŽž.,_ ]{30,10000}$/"
+                          invalid-message="'Opis mora imati bar 30 znakova'"
                           required-message="'Obavezno polje'"
                           validate-on="dirty"
-                          required
-                          ></textarea>
-            </div>
-        </div>
-
-
-        <div class="form-group">
-            Grad:<select ng-model="chosenCity" ng-options="city.Name for city in cities" required></select>
-            <br />
-        </div>
-
-        <div id="chosingTypeOfAssociation">
-            <div id="contentOfChosingTypeOfAssociation">
-                <input type="radio" checked name="isschool" ng-model="isschool" value="true">Škola
-                <br />
-                <input type="radio" name="isschool" ng-model="isschool" value="false"> Udruga
+                          required></textarea>
             </div>
         </div>
 
         <div id="chosingAffinities">
             <div id="contentOfChoingAffinities">
-                <input type="radio" checked name="isType" ng-click="type(1)" value="true">Sport
+                <input type="radio" ng-checked="choise === 1"  name="isType" ng-click="type(1)" value="true">Sport
                 <br />
-                <input type="radio" name="isType" ng-click="type(2)" value="false"> Umjetnost
+                <input type="radio" ng-checked="choise === 2" name="isType" ng-click="type(2)" value="false"> Umjetnost
                 <br />
-                <input type="radio" checked name="isType" ng-click="type(3)" value="true">Glazba
+                <input type="radio" ng-checked="choise === 3"  name="isType" ng-click="type(3)" value="false">Glazba
                 <br />
-                <input type="radio" name="isType" ng-click="type(4)" value="false"> Volontiranje
+                <input type="radio" ng-checked="choise === 4" name="isType" ng-click="type(4)" value="false"> Volontiranje
                 <br />
-                <input type="radio" checked name="isType" ng-click="type(5)" value="true">Strani jezici
+                <input type="radio" ng-checked="choise === 5" name="isType" ng-click="type(5)" value="false">Strani jezici
                 <br />
-                <input type="radio" name="isType" ng-click="type(6)" value="false"> Obrazovanje
+                <input type="radio" ng-checked="choise === 6" name="isType" ng-click="type(6)" value="false"> Obrazovanje
                 <br />
-                <input type="radio" checked name="isType" ng-click="type(7)" value="true">Tehnologija
+                <input type="radio" ng-checked="choise === 7" name="isType" ng-click="type(7)" value="false">Tehnologija
                 <br />
-                <input type="radio" name="isType" ng-click="type(8)" value="false"> Zdravlje
+                <input type="radio" ng-checked="choise === 8" name="isType" ng-click="type(8)" value="false"> Zdravlje
             </div>
         </div>
 
@@ -247,18 +246,18 @@
             <input type="checkbox" name="affinities" ng-click="addAffinity(affinity)"/> {{affinity.Name}}
         </div>
             </div>-->
-    
 
-            <br />
 
-            <div class="form-group">
+        <br />
 
-            </div>
+        <div class="form-group">
 
-            <br />
-            <button type="button" ng-click="userForm.reset()" class="btn btn-primary">Reset</button>
-            <button type="submit" class="btn btn-primary">Submit</button>
-</form>
+        </div>
+
+        <br />
+        <button type="button" ng-click="userForm.reset()" class="btn btn-primary">Reset</button>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
 
 
     <br />

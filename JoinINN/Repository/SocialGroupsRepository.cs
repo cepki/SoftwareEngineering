@@ -50,5 +50,32 @@ namespace JoinINN.Repository
             }
         }
 
+
+        public void EditUser(SocialGroup socGroup)
+        {
+            using (var context = new JoinINN.Infrastructure.GroupsDb())
+            {
+                try
+                {
+                    var existingSocGroup = context.SocialGroups.FirstOrDefault(x => x.Id == socGroup.Id);
+                    existingSocGroup.AffinityType = context.AffinityTypes.FirstOrDefault(x => x.Id == socGroup.AffinityType_Id);
+                    existingSocGroup.Password = socGroup.Password;
+                    existingSocGroup.Name = socGroup.Name;
+                    existingSocGroup.OfficialWebUrl = socGroup.OfficialWebUrl;
+                    existingSocGroup.FacebookPageUrl = socGroup.FacebookPageUrl;
+                    existingSocGroup.photoUrl = socGroup.photoUrl;
+                    existingSocGroup.ContactNumber = socGroup.ContactNumber;
+                    existingSocGroup.Description = socGroup.Description;
+
+                    context.SaveChanges();
+                }
+                catch (DbEntityValidationException dbEx)
+                {
+                }
+            }
+        }
+
+
+
     }
 }

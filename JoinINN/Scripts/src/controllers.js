@@ -1,7 +1,7 @@
 ﻿angular.module('joinin')
 .controller('mainController', function ($scope, $http, ngDialog, $rootScope, $cookies) {
     
-    //console.log($rootScope.logedRole);
+    console.log($rootScope.logedRole);
 
     $scope.limit = 4;
     var allGroups = [];
@@ -177,12 +177,11 @@
 
             $http.get('/api/LoginApi/WhoAmI')
             .then(function (result) {
-                console.log(result.data);
+                $rootScope.logedRole = result.data.Role;
                 $cookies.putObject("logedUser", result.data);
-                $rootScope.logedRole = result.data.role;
                 $timeout(function () {
                     $location.path("/");
-                },2000)
+                },700)
             })
         })
         .error(function () {
@@ -191,6 +190,15 @@
         })
     }
 
+})
+
+.controller('logoutController', function ($rootScope, $http, $location, $cookies) {
+    $http.get('/api/LoginApi/SignOut')
+    .success(function () {
+        $rootScope.logedRole = null;
+        $cookies.putObject("logedUser", null);
+        $location.path('/');
+    })
 })
 
 .controller('adminController', function ($scope, $http, $cookies, $location) {
@@ -213,4 +221,88 @@
             allGroups.splice($scope.groupsToShow.indexOf(user), 1);
         })
     }
+})
+
+.controller('editProfileController', function ($scope, $http) {
+    $scope.choise = 0;
+    var affinities = [];
+    var oldPassword = "STARIPASSWORDJEOVO";
+    $scope.test = true;
+    $scope.isschool = true.toString();
+    $scope.isOldPasswordCorrect = false;
+
+    $http.get('api/CitiesApi/GetAllCities')
+    .then(function (result) {
+        $scope.cities = result.data;
+        $scope.chosenCity = result.data[0];
+    })
+
+
+    $http.get('api/AffinitiesApi/GetAllAffinites')
+    .then(function (result) {
+        $scope.affinities = result.data;
+    })
+
+    $http.get('api/loginApi/GetLogedUser')
+    .then(function (result) {
+        
+        $scope.password = "";
+        console.log(result.data);
+
+        $scope.groupname = result.data.Name;
+        $scope.contactnumber = result.data.ContactNumber;
+        $scope.emailaddress = result.data.EmailAddress;
+        $scope.officialweburl = result.data.OfficialWebUrl;
+        $scope.facebookpageurl = result.data.FacebookPageUrl;
+        $scope.description = result.data.Description;
+        $scope.isschool = result.data.IsSchool;
+        $scope.choise = result.data.AffinityType.Id;
+        oldPassword = result.data.Password;
+    })
+
+    $scope.$watch('password', function (value) { //watch for old password, if it is right, then ng-show="true" for new password
+        console.log("KSKKSAKK")
+        console.log()
+        if (value == oldPassword) {
+            console.log("iste su sifre");
+            $scope.isOldPasswordCorrect = true; //check if is it right
+        }
+        else
+        {
+            $scope.isOldPasswordCorrect = false;  //if password is not defined then for sure it is not oke
+        }
+    })
+
+    $scope.submitUserForm = function (nesto) {
+        console.log("Ide submit");
+        console.log(nesto);
+        var user = {
+            //Username: $scope.username,
+            Name: $scope.groupname,
+            Password: $scope.password,
+            ContactNumber: $scope.contactnumber,
+            EmailAddress: $scope.emailaddress,
+            OfficialWebUrl: $scope.officialweburl,
+            FacebookPageUrl: $scope.facebookpageurl,
+            Description: $scope.description,
+            GroupEmailAddress: $scope.groupemailaddress,
+            AffinityType_Id: $scope.choise,
+            photoUrl: $scope.photourl
+        }
+
+
+        $http.post('api/SocialGroupsApi/EditGroup', user)
+        .success(function () {
+            console.log("Uspilo");
+        })
+        .error(function () {
+            console.log("Nije uspilo");
+        })
+    }
+
+    $scope.type = function (id) {
+        $scope.choise = id;
+    }
+
+
 })

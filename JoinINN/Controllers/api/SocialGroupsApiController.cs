@@ -54,5 +54,23 @@ namespace JoinINN.Controllers.api
         }
 
 
+        [HttpPost]
+        public HttpResponseMessage EditGroup(SocialGroup editedUser)
+        {
+            try
+            {
+                //var dataUser = UserMapper.Map(newUser);
+                //var idsOfAffinities = newUser.AffinityTypes.Select(x => x.Id).ToList<int>();
+                var responseOnAdding = groupsRepository.EditUser(editedUser);
+                var response = this.Request.CreateResponse(HttpStatusCode.Created, true);
+                return response;
+            }
+            catch (Exception e)
+            {
+                var response = this.Request.CreateResponse(HttpStatusCode.BadRequest, new HttpError(e.ToString()));
+                return response;
+            }
+        }
+
     }
 }
