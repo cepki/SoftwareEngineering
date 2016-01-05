@@ -25,3 +25,14 @@
         controller: 'adminController'
     })
 })
+
+.run(function ($rootScope, $cookies) {
+    if (!$cookies.getObject("logedUser"))
+    {
+        $rootScope.logedRole = null;
+    }
+    else
+    {
+        $rootScope.logedRole = $cookies.getObject("logedUser").Role;
+    }
+})

@@ -1,5 +1,8 @@
 ﻿angular.module('joinin')
 .controller('mainController', function ($scope, $http, ngDialog, $rootScope, $cookies) {
+    
+    //console.log($rootScope.logedRole);
+
     $scope.limit = 4;
     var allGroups = [];
 
@@ -176,6 +179,7 @@
             .then(function (result) {
                 console.log(result.data);
                 $cookies.putObject("logedUser", result.data);
+                $rootScope.logedRole = result.data.role;
                 $timeout(function () {
                     $location.path("/");
                 },2000)
@@ -192,7 +196,7 @@
 .controller('adminController', function ($scope, $http, $cookies, $location) {
     var allGroups = [];
 
-    $http.get('api/UsersApi/GetAllGroups')
+    $http.get('api/SocialGroupsApi/GetAllGroups')
     .then(function (result) {
         $scope.groupsToShow = result.data;
         angular.forEach(result.data, function (value) {
@@ -202,7 +206,7 @@
 
     $scope.Delete = function(user)
     {
-        //console.log("Go");
+        console.log("Go");
         $http.get('api/AdminApi/AdminDeleteGroup/' + user.Id)
         .then(function (result) {
             $scope.groupsToShow.splice($scope.groupsToShow.indexOf(user), 1);

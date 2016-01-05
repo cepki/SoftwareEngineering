@@ -21,20 +21,17 @@ namespace JoinINN.Repository
         {
             using (var context = new JoinINN.Infrastructure.GroupsDb())
             {
-                //try
-                //{
-                //    var userToDelete = context.Users.FirstOrDefault(x => x.Id == id);
-                //    userToDelete.AffinityTypes.Clear();
-                //    context.Users.Remove(userToDelete);
-                //    context.SaveChanges();
-                //    return true;
-                //}
-                //catch (Exception e)
-                //{
-                //    return false;
-                //}
-
-                return true;
+                try
+                {
+                    var groupToDelete = context.SocialGroups.FirstOrDefault(x => x.Id == id);
+                    context.SocialGroups.Remove(groupToDelete);
+                    context.SaveChanges();
+                    return true;
+                }
+                catch (Exception e)
+                {
+                    return false;
+                }
             }
         }
 
