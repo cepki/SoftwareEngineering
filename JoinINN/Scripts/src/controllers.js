@@ -132,7 +132,7 @@
     var choise = 1;
     var affinities = [];
     $scope.isschool = true.toString();
-    $scope.startPicture = "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcRZed5z4CnYECiW0fBzVhFNs709LJaRKkNk-muSWffykYY4pzeX";
+    $scope.startPicture = "http://nkdinamo-okic.hr/page/wp-content/uploads/2014/09/no-avatar_female5-300x284.jpg";
     $scope.newPicture = "";
     $http.get('api/CitiesApi/GetAllCities')
     .then(function(result)
@@ -205,6 +205,7 @@
             username: $scope.username,
             password: $scope.password
         }
+        console.log(user);
 
         $http.post('/api/LoginApi/SignIn', user)
         .success(function () {
@@ -219,7 +220,7 @@
             })
         })
         .error(function () {
-            alert("Krivi login");
+            Console.log("KRIVI LOGIN");
             $location.path("/");
         })
     }

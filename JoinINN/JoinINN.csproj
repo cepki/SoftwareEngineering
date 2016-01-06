@@ -233,10 +233,10 @@
     <Content Include="css\AddNew.css" />
     <Content Include="css\Images\bullet.png" />
     <Content Include="css\listing.css" />
+    <Content Include="css\login.css" />
     <Content Include="css\ngDialog-theme-default.css" />
     <Content Include="css\ngDialog-theme-plain.css" />
     <Content Include="css\ngDialog.css" />
-    <Content Include="css\normalize.css" />
     <Content Include="css\style.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />

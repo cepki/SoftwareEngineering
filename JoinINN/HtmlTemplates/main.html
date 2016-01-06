@@ -1,4 +1,10 @@
 ﻿<!DOCTYPE html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+</head>
 <style>
     .groups {
         width: 38%;
@@ -48,14 +54,8 @@
 
     <input id="search-input" type="text" placeholder="Unesite ime za pretragu" ng-model="searchedText" />
 
-
+    <span ng-click="FindWithThisCondition()" class="glyphicon glyphicon-search"></span>
     <!--<input type="button" value="Pretrazi" ng-click="FindWithThisCondition()" />-->
-
-    <br />
-        <hr />
-            <input type="button" ng-click="FindWithThisCondition()" value="Search"/>
-    <hr />
-        <br />
 
     <div style="margin-left:17%; ">
         <!--id=hehe-->

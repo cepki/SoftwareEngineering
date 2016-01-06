@@ -230,7 +230,7 @@ ul#informations li {
     display: inline-block;
     vertical-align:top;
     background-color:white;
-    opacity: 0.5;
+    opacity: 0.9;
     width: 210px;
     height: 175px;
     margin: 10px;
@@ -241,4 +241,28 @@ ul#informations li {
    margin-left:10%;
    width: 80%;
    height: 70%;
+}
+
+
+/*changing color placeholder*/
+
+::-webkit-input-placeholder { /* WebKit, Blink, Edge */
+    color:    white;
+}
+:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+   color:    white;
+   opacity:  1;
+}
+::-moz-placeholder { /* Mozilla Firefox 19+ */
+   color:    white;
+   opacity:  1;
+}
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+   color:    white;
+}
+
+.glyphicon-search{
+    margin-left: 11px;
+    color: #fff;
+    font-size: 19px;
 }
