@@ -53,7 +53,7 @@ ul#navbar li a {
 	height: 290px;
 	position: relative;
     background-size: 345px 290px;
-    opacity: 0.7;
+    opacity: 0.85;
 	background-color: white;
 	background-repeat: no-repeat;
 }
@@ -67,7 +67,7 @@ ul#navbar li a {
 	width: 345px;
 	height: 290px;
 	position: relative;
-    opacity: 0.7;
+    opacity: 0.85;
     background-size: 345px 290px;
 	background-image: url(https://scontent-vie1-1.xx.fbcdn.net/hphotos-xpt1/v/t1.0-9/10592750_527662070710011_3258294634430693170_n.png?oh=200336d25482ea5a4df95fca6dd17266&oe=5705B5F1);
 	background-repeat: no-repeat;
@@ -216,8 +216,8 @@ ul#informations li {
 	background-repeat: no-repeat;
 	text-decoration: none;
 	font-family: Arial, Helvetica, sans-serif;
-	font-size: 12px;
-	color: #fffffe;
+	font-size: 15px;
+	color: black;
 	font-weight: bold;
 	text-align: center;
 	padding: 2px 0px 0px 0px;

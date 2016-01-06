@@ -36,35 +36,39 @@
 </style >
 <body>
 
-    <div class="form-group">
+    <div class="custom-dropdown big" style="margin-left:30%">
         <select ng-model="chosenCity" ng-options="city.Name for city in allCities" required></select>
         <br />
     </div>
 
-    <div class="form-group">
+    <div class="custom-dropdown big">
         <select ng-model="chosenAffinity" ng-options="affinity.Name for affinity in allAffinities" required></select>
         <br />
     </div>
 
-    <input type="text" placeholder="Unesite ime za pretragu" ng-model="searchedText" style="margin-left: 40%" />
+    <input id="search-input" type="text" placeholder="Unesite ime za pretragu" ng-model="searchedText" />
 
-    <input type="button" value="Pretrazi" ng-click="FindWithThisCondition()" />
+
+    <!--<input type="button" value="Pretrazi" ng-click="FindWithThisCondition()" />-->
 
     <br />
-    <br />
+        <hr />
+            <input type="button" ng-click="FindWithThisCondition()" value="Search"/>
+    <hr />
+        <br />
 
-    <div style="margin-left:17%">
+    <div style="margin-left:17%; ">
         <!--id=hehe-->
-        <div id="banner">
+        <div id="banner" style="background-image:url({{userToShowForFirst.photoUrl}})">
 
         </div>
-        <div id="informations">
-            <h3>Focused &amp; Dedicated...</h3>
-            <h4>We Manage all Capitalization Portfolios</h4>
+        <div id="informations" >
+            <h3>{{userToShowForFirst.Name}}</h3>
+            <h4>{{userToShowForFirst.Purpose}}</h4>
             <ul id="banlist">
-                <li>Capital Preservation</li>
-                <li>Market-cycle identification</li>
-                <li>Asset and style allocation</li>
+                <li>{{userToShowForFirst.City.Name}}</li>
+                <li>{{userToShowForFirst.AffinityType.Name}}</li>
+                <!--<li>Asset and style allocation</li>-->
             </ul>
             <a href="#" id="banbut">Learn More</a>
             <div class="clear"></div>
@@ -73,8 +77,8 @@
 
     <div id="groupslisting" style="margin-left:17%; margin-right:17%; display:inline-block;">
         <div class="iconAndNameOfGroups" ng-repeat="group in groupsToShow">
-            <img class="imgInIcon" ng-src="{{group.photoUrl}}" alt="Nema slike" />
-            <p style="width:80%; height:40%; margin-left:10%; margin-right:10%;">{{group.Name}}</p>
+            <img class="imgInIcon" ng-src="{{group.photoUrl}}" alt="Nema slike" ng-click="PutThisGroupInMiddle(group)"/>
+            <h4 style="width:80%; height:40%; margin-left:10%; margin-right:10%;">{{group.Name}}</h4>
         </div>
     </div>
 

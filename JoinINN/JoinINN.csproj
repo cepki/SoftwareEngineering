@@ -235,6 +235,7 @@
     <Content Include="css\ngDialog-theme-default.css" />
     <Content Include="css\ngDialog-theme-plain.css" />
     <Content Include="css\ngDialog.css" />
+    <Content Include="css\style.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />

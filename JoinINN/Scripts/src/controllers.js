@@ -3,6 +3,15 @@
     
     console.log($rootScope.logedRole);
 
+    $scope.userToShowForFirst = {
+        photoUrl: "http://www.seven46.com/wp-content/uploads/2014/08/JoinIN.jpg",
+        Name: "JoinIn",
+        Purpose: "Povezati mlade",
+        City: { Name: "Povezimo mlade" },
+        AffinityType: { Name: "Podijelimo znanje" },
+
+    };
+
     $scope.limit = 4;
     var allGroups = [];
 
@@ -110,6 +119,10 @@
         return element.Id == $scope.chosenAffinity.Id;
     }
 
+    $scope.PutThisGroupInMiddle = function(group)
+    {
+        $scope.userToShowForFirst = group;
+    }
 })
 
 .controller('homeController', function () {
