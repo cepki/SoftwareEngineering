@@ -53,18 +53,21 @@
     <br />
     <br />
 
-    <div id="showGroups">
+    <div id="showGroups" ng-show="groupsToShow.length">
+        <h1>Grupe</h1>
         <div ng-repeat="group in groupsToShow  | limitTo:limit" class="groups">
             <img ng-src="{{group.photoUrl}}" alt="Nema slike" class="framepicture" />
-            <h2 class="groupNameInFrame">{{group.GroupName}}</h2>
+            <h3 class="groupNameInFrame">{{group.Name}}</h3>
             <h4 class="findMore" ng-click="nesto(group)">Saznaj vise</h4>
         </div>
     </div>
+    <div ng-show="!groupsToShow.length">
+        <h1>Nema grupa</h1>
+    </div>
+    <input type="button" ng-click="aloo()" value="Tessst" />
 
     <input type="button" ng-click="readAll()" value="IzlistajSve" ng-show="!areAllLoaded" id="loadingMoreFrames" />
 
-    <hr />
-    <hr />
     <hr />
     <input type="button" ng-click="idemo()" value="test" style="margin-left: 40%;"/>
 

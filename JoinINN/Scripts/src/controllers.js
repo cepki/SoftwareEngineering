@@ -63,14 +63,26 @@
         console.log($cookies.getObject("logedUser"));
     }
 
+    $scope.aloo = function()
+    {
+        console.log($scope.groupsToShow);
+    }
+
     $scope.FindWithThisCondition = function()
     {
+        //console.log("U pretrazi sam");
+        //console.log($scope.groupsToShow);
         $scope.groupsToShow.splice(0, $scope.groupsToShow.length);
+        //console.log($scope.groupsToShow);
+        console.log();
         $scope.limit = 4;
-        if($scope.searchedText == null || $scope.searchedText == undefined)
+        //console.log(!!$scope.searchedText);
+        if(!$scope.searchedText)
         {
             angular.forEach(allGroups, function (value) {
-                if(($scope.chosenCity.Id == 1000 || ($scope.chosenCity.Id == value.CityId)) && (($scope.chosenAffinity.Id == 1000 || value.AffinityTypes.some(hasThisElement))))
+                //console.log(value);
+                //console.log($scope.chosenCity);
+                if(($scope.chosenCity.Id == 1000 || ($scope.chosenCity.Id == value.CityId)) && (($scope.chosenAffinity.Id == 1000 || value.AffinityType.Id == $scope.chosenAffinity.Id)))
                 {
                     $scope.groupsToShow.push(value);
                 }
@@ -83,7 +95,7 @@
         else
         {
             angular.forEach(allGroups, function (value) {
-                if (($scope.chosenCity.Id == 1000 || ($scope.chosenCity.Id == value.CityId)) && (($scope.chosenAffinity.Id == 1000 || value.AffinityTypes.some(hasThisElement))) && ((value.GroupName).toLowerCase()).indexOf(($scope.searchedText).toLowerCase()) >= 0) {
+                if (($scope.chosenCity.Id == 1000 || ($scope.chosenCity.Id == value.CityId)) && (($scope.chosenAffinity.Id == 1000 || value.AffinityType.Id == $scope.chosenAffinity.Id)) && ((value.Name).toLowerCase()).indexOf(($scope.searchedText).toLowerCase()) >= 0) {
                     $scope.groupsToShow.push(value);
                 }
                 else {
@@ -107,7 +119,8 @@
     var choise = 1;
     var affinities = [];
     $scope.isschool = true.toString();
-
+    $scope.startPicture = "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcRZed5z4CnYECiW0fBzVhFNs709LJaRKkNk-muSWffykYY4pzeX";
+    $scope.newPicture = "";
     $http.get('api/CitiesApi/GetAllCities')
     .then(function(result)
     {
@@ -121,7 +134,15 @@
         $scope.affinities = result.data;
     })
 
-    
+    $scope.$watch('newPicture', function (newValue) {
+        if(newValue)
+        {
+            console.log("Minjam sliku");
+            $scope.startPicture = newValue;
+        }
+    });
+
+
     $scope.submitUserForm = function () {
         console.log("Ide submit");
 
