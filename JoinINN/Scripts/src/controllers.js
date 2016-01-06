@@ -225,10 +225,9 @@
 
 .controller('editProfileController', function ($scope, $http) {
     $scope.choise = 0;
-    var affinities = [];
     var oldPassword = "STARIPASSWORDJEOVO";
     $scope.test = true;
-    $scope.isschool = true.toString();
+    //$scope.isschool = true.toString();
     $scope.isOldPasswordCorrect = false;
 
     $http.get('api/CitiesApi/GetAllCities')
@@ -247,7 +246,7 @@
     .then(function (result) {
         
         $scope.password = "";
-        console.log(result.data);
+        //console.log(result.data);
 
         $scope.groupname = result.data.Name;
         $scope.contactnumber = result.data.ContactNumber;
@@ -257,14 +256,17 @@
         $scope.description = result.data.Description;
         $scope.isschool = result.data.IsSchool;
         $scope.choise = result.data.AffinityType.Id;
+        $scope.id = result.data.Id;
+        $scope.photourl = result.data.photoUrl;
         oldPassword = result.data.Password;
     })
 
     $scope.$watch('password', function (value) { //watch for old password, if it is right, then ng-show="true" for new password
-        console.log("KSKKSAKK")
-        console.log()
-        if (value == oldPassword) {
-            console.log("iste su sifre");
+        //console.log("KSKKSAKK")
+        //console.log(value);
+        //console.log(oldPassword);
+        if (value === oldPassword) {
+            //console.log("iste su sifre");
             $scope.isOldPasswordCorrect = true; //check if is it right
         }
         else
@@ -273,13 +275,17 @@
         }
     })
 
-    $scope.submitUserForm = function (nesto) {
-        console.log("Ide submit");
-        console.log(nesto);
+
+
+    $scope.submitUserForm = function (submitedForm) {
+
+
+        var newPassword = $scope.isOldPasswordCorrect ? $scope.newPassword : oldPassword;
+        //console.log(newPassword);
         var user = {
-            //Username: $scope.username,
+            Id: $scope.id,
             Name: $scope.groupname,
-            Password: $scope.password,
+            Password: newPassword,
             ContactNumber: $scope.contactnumber,
             EmailAddress: $scope.emailaddress,
             OfficialWebUrl: $scope.officialweburl,
@@ -290,6 +296,7 @@
             photoUrl: $scope.photourl
         }
 
+        console.log(user);
 
         $http.post('api/SocialGroupsApi/EditGroup', user)
         .success(function () {

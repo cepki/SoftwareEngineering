@@ -58,6 +58,7 @@ namespace JoinINN.Repository
                 try
                 {
                     var existingSocGroup = context.SocialGroups.FirstOrDefault(x => x.Id == socGroup.Id);
+
                     existingSocGroup.AffinityType = context.AffinityTypes.FirstOrDefault(x => x.Id == socGroup.AffinityType_Id);
                     existingSocGroup.Password = socGroup.Password;
                     existingSocGroup.Name = socGroup.Name;
