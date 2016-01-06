@@ -7,9 +7,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 
-    <script>
-       
-    </script>
+    
 </head>
 <style>
     #chosingTypeOfAssociation {
@@ -24,14 +22,21 @@
 
 
 </style>
-<body>
-    <div><h1 style="color:white;">Grupe</h1></div>
 
-    <!--<form angular-validator-submit="submitUserForm()" name="userForm" class="form-horizontal" novalidate angular-validator>
+<script>
+        
+      
+
+</script>
+
+<body>
+    <div><h1 style="color:white;">Registracija</h1></div>
+
+    <form angular-validator-submit="submitUserForm()" name="userForm" class="form-horizontal" novalidate angular-validator>
         
 
         <div class="form-group">
-            <label class="col-sm-2 control-label">Ime udruge:</label>
+            <label class="col-sm-2 control-label">Ime:</label>
             <div class="col-sm-10">
                 <input type="text"
                        name="groupname"
@@ -45,7 +50,7 @@
                        required>
             </div>
         </div>
-
+        <br />
         <div class="form-group">
             <label class="col-sm-2 control-label">Password:</label>
             <div class="col-sm-10">
@@ -55,12 +60,13 @@
                        ng-model="password"
                        ng-model-options="{updateOn: 'blur'}"
                        ng-pattern="/^[0-9a-zA-ZČčĆćŽžĐđŠšŽž]{8,25}$/"
-                       invalid-message="'Password mora imati minimum 8, a maksimum 25 znakova'"
+                       invalid-message="'Password mora imati minimum 8 znakova'"
                        required-message="'Obavezno polje'"
                        validate-on="dirty"
                        required>
             </div>
         </div>
+        <br />
 
         <div class="form-group">
             <label class="col-sm-2 control-label">Kontakt broj:</label>
@@ -77,6 +83,7 @@
                        required>
             </div>
         </div>
+        <br />
 
         <div class="form-group">
             <label class="col-sm-2 control-label">Email adresa:</label>
@@ -95,6 +102,7 @@
 
             </div>
         </div>
+        <br />
 
         <div class="form-group">
             <label class="col-sm-2 control-label">URI oficijalne stranice:</label>
@@ -111,6 +119,7 @@
 
             </div>
         </div>
+        <br />
 
         <div class="form-group">
             <label class="col-sm-2 control-label">Link facebook stranice:</label>
@@ -128,7 +137,8 @@
             </div>
         </div>
 
-        
+        <br />
+
 
         <div class="form-group">
             <label class="col-sm-2 control-label">Opis:</label>
@@ -147,22 +157,31 @@
             </div>
         </div>
 
+        <br />
 
-        <div class="form-group">
-            Grad:<select ng-model="chosenCity" ng-options="city.Name for city in cities" required></select>
+        <div class="form-group" style="margin-left:13%">
+            <span style="margin-left:34%;"><strong>Grad:</strong></span><br /><select ng-model="chosenCity" ng-options="city.Name for city in cities" required></select>
             <br />
         </div>
+        <br />
+        <br />
 
-        <div id="chosingTypeOfAssociation">
+
+        
+        <<!--div id="chosingTypeOfAssociation" style="margin-left:30%">
             <div id="contentOfChosingTypeOfAssociation">
                 <input type="radio" checked name="isschool" ng-model="isschool" value="true">Škola
                 <br />
                 <input type="radio" name="isschool" ng-model="isschool" value="false"> Udruga
             </div>
-        </div>
+        </div>-->
+        <br />
+        <span style="margin-left:36%"><strong>Tip udruge:</strong></span>
+        <br />
+        <br />
 
-        <div id="chosingAffinities">
-            <div id="contentOfChoingAffinities">
+        <div id="chosingAffinities" style="margin-left:36%">
+            <div id="contentOfChoingAffinities" >
                 <input type="radio" checked name="isType" ng-click="type(1)" value="true">Sport
                 <br />
                 <input type="radio" name="isType" ng-click="type(2)" value="false"> Umjetnost
@@ -181,26 +200,18 @@
             </div>
         </div>
 
-        <button type="button" ng-click="userForm.reset()" class="btn btn-primary">Reset</button>
-        <button type="submit" class="btn btn-primary">Submit</button>
-
+        <br />
+        <br />
 
         <div >
             <img ng-src="{{startPicture}}" alt="NemaSlike" height="300" width="450">
             <input type="text" ng-model="newPicture" />
         </div>
+
+        <button type="button" ng-click="userForm.reset()" class="btn btn-primary">Reset</button>
+        <button type="submit" class="btn btn-primary">Submit</button>
+
 </form>
-
-
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />-->
-
-
-    
 </body>
 
 

@@ -230,11 +230,13 @@
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="css\AddNew.css" />
     <Content Include="css\Images\bullet.png" />
     <Content Include="css\listing.css" />
     <Content Include="css\ngDialog-theme-default.css" />
     <Content Include="css\ngDialog-theme-plain.css" />
     <Content Include="css\ngDialog.css" />
+    <Content Include="css\normalize.css" />
     <Content Include="css\style.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
@@ -242,6 +244,7 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="HtmlTemplates\styles.less" />
     <None Include="Scripts\jquery-2.1.4.intellisense.js" />
     <Content Include="HtmlTemplates\admin.html" />
     <Content Include="HtmlTemplates\edit.html" />
