@@ -53,22 +53,47 @@
     <br />
     <br />
 
-    <div id="showGroups" ng-show="groupsToShow.length">
+    <div style="margin-left:17%">
+        <!--id=hehe-->
+        <div id="banner">
+
+        </div>
+        <div id="informations">
+            <h3>Focused &amp; Dedicated...</h3>
+            <h4>We Manage all Capitalization Portfolios</h4>
+            <ul id="banlist">
+                <li>Capital Preservation</li>
+                <li>Market-cycle identification</li>
+                <li>Asset and style allocation</li>
+            </ul>
+            <a href="#" id="banbut">Learn More</a>
+            <div class="clear"></div>
+        </div>
+    </div>
+
+    <div id="groupslisting" style="margin-left:17%; margin-right:17%; display:inline-block;">
+        <div class="iconAndNameOfGroups" ng-repeat="group in groupsToShow">
+            <img class="imgInIcon" ng-src="{{group.photoUrl}}" alt="Nema slike" />
+            <p style="width:80%; height:40%; margin-left:10%; margin-right:10%;">{{group.Name}}</p>
+        </div>
+    </div>
+
+
+    <!--<div id="showGroups" ng-show="groupsToShow.length">
         <h1>Grupe</h1>
         <div ng-repeat="group in groupsToShow  | limitTo:limit" class="groups">
             <img ng-src="{{group.photoUrl}}" alt="Nema slike" class="framepicture" />
             <h3 class="groupNameInFrame">{{group.Name}}</h3>
-            <h4 class="findMore" ng-click="nesto(group)">Saznaj vise</h4>
         </div>
     </div>
     <div ng-show="!groupsToShow.length">
         <h1>Nema grupa</h1>
-    </div>
-    <input type="button" ng-click="aloo()" value="Tessst" />
+    </div>-->
+    <!--<input type="button" ng-click="aloo()" value="Tessst" />
 
     <input type="button" ng-click="readAll()" value="IzlistajSve" ng-show="!areAllLoaded" id="loadingMoreFrames" />
 
     <hr />
-    <input type="button" ng-click="idemo()" value="test" style="margin-left: 40%;"/>
+    <input type="button" ng-click="idemo()" value="test" style="margin-left: 40%;"/>-->
 
 </body>

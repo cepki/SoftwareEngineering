@@ -230,6 +230,8 @@
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="css\Images\bullet.png" />
+    <Content Include="css\listing.css" />
     <Content Include="css\ngDialog-theme-default.css" />
     <Content Include="css\ngDialog-theme-plain.css" />
     <Content Include="css\ngDialog.css" />
@@ -247,6 +249,8 @@
     <Content Include="HtmlTemplates\second.html" />
     <Content Include="HtmlTemplates\test.html" />
     <Content Include="HtmlTemplates\third.html" />
+    <Content Include="Images\banner.png" />
+    <Content Include="Images\photo_bg.jpg" />
     <Content Include="Scripts\jquery-2.1.4.min.js" />
     <Content Include="Scripts\src\application.js" />
     <Content Include="Scripts\src\controllers.js" />
