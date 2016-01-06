@@ -49,8 +49,9 @@
                 <li ng-show="logedRole=='admin'"><a href="#/adminPage">Admin</a></li> 
             </ul>
             <ul class="nav navbar-nav navbar-right">
-                <li><a ng-show="logedRole"href="#/logout"><span class="glyphicon glyphicon-user"></span>Logout</a></li>
-                <li ng-show="!logedRole"><a href="#/login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+                <li ng-show="logedRole"><a href="#/logout"><span class="glyphicon glyphicon-log-out"></span> Odjava</a></li>
+                <li><a ng-show="!logedRole"href="#/makeProfile"><span class="glyphicon glyphicon-user"></span>Registracija</a></li>
+                <li ng-show="!logedRole"><a href="#/login"><span class="glyphicon glyphicon-log-in"></span>Prijava</a></li>
             </ul>
         </div>
     </nav>
