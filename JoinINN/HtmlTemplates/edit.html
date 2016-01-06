@@ -19,10 +19,7 @@
     }
 </style>
 <body>
-    <br />
-    <br />
-    <br />
-    <div><h1>Unesite podatke</h1></div>
+    <div><h1 style="color:white;">Uredi podatke</h1></div>
 
     <form angular-validator-submit="submitUserForm(userForm)" name="userForm" class="form-horizontal" novalidate angular-validator>
 
@@ -221,7 +218,12 @@
             </div>
         </div>
 
-        <div id="chosingAffinities">
+        <br />
+        <span style="margin-left:36%"><strong>Tip udruge:</strong></span>
+        <br />
+        <br />
+
+        <div id="chosingAffinities" style="margin-left:38%">
             <div id="contentOfChoingAffinities">
                 <input type="radio" ng-checked="choise === 1"  name="isType" ng-click="type(1)" value="true">Sport
                 <br />

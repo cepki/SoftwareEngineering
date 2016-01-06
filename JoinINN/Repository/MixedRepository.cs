@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography;
+using System.Text;
 using System.Web;
 
 namespace JoinINN.Repository
@@ -11,8 +13,9 @@ namespace JoinINN.Repository
         {
             using (var context = new JoinINN.Infrastructure.GroupsDb())
             {
-                return (context.Admins.Any(x => x.Username == username && x.Password == password)) ||
-                    (context.SocialGroups.Any(x => x.EmailAddress == username && x.Password == password));
+                var hashedPassword = sha256_hash(password);
+                return (context.Admins.Any(x => x.Username == username && x.Password == hashedPassword)) ||
+                    (context.SocialGroups.Any(x => x.EmailAddress == username && x.Password == hashedPassword));
             }
         }
 
@@ -28,6 +31,16 @@ namespace JoinINN.Repository
                 {
                     return "user";
                 }
+            }
+        }
+
+        public static String sha256_hash(String value)
+        {
+            using (SHA256 hash = SHA256Managed.Create())
+            {
+                return String.Join("", hash
+                  .ComputeHash(Encoding.UTF8.GetBytes(value))
+                  .Select(item => item.ToString("x2")));
             }
         }
     }
