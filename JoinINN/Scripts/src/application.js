@@ -1,4 +1,5 @@
-﻿angular.module('joinin', ['ngRoute', 'angularValidator', 'ngDialog', 'ngCookies'])
+﻿
+angular.module('joinin', ['ngRoute', 'angularValidator', 'ngDialog', 'ngCookies', 'underscore'])
 .config(function ($routeProvider, $locationProvider) {
     $routeProvider.when('/', {
         controller: 'mainController',

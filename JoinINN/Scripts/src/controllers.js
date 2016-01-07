@@ -238,24 +238,37 @@
     })
 })
 
-.controller('adminController', function ($scope, $http, $cookies, $location) {
+.controller('adminController', function ($scope, $http, $cookies, $location, _) {
     $scope.searchedCity = "Sve grupe";
-
     $http.get('/api/AdminApi/GetAllInformationsForAdmin')
     .success(function (result) {
         $scope.informations = result;
         console.log(result);
     })
 
-    $scope.changeCity = function(broj)
+    $scope.changeCity = function(grad)
     {
-
+        
+        console.log("u change city sam");
+        if(grad === "svi")
+        {
+            $scope.groupsToShow = allGroups;
+        }
+        else if(grad === "zagreb")
+        {
+            $scope.groupsToShow = _.filter(allGroups, function(group){return group.CityId === 2});
+        }
+        else
+        {
+            $scope.groupsToShow = _.filter(allGroups, function(group){return group.CityId === 1})
+        }
     }
 
     var allGroups = [];
 
     $http.get('api/SocialGroupsApi/GetAllGroups')
     .then(function (result) {
+        console.log(result.data);
         $scope.groupsToShow = result.data;
         angular.forEach(result.data, function (value) {
             allGroups.push(value);

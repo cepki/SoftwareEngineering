@@ -318,6 +318,7 @@
     <Content Include="Scripts\Vendor\angular-local-storage.js" />
     <Content Include="Scripts\Vendor\angular-mocks.js" />
     <Content Include="Scripts\Vendor\angular-route.js" />
+    <Content Include="Scripts\Vendor\angular-underscore-module.js" />
     <Content Include="Scripts\Vendor\angular-validator.js" />
     <Content Include="Scripts\Vendor\angular.js" />
     <Content Include="Scripts\Vendor\jquery.js" />
@@ -472,6 +473,7 @@
     <Content Include="Scripts\Vendor\Semantic\semantic.min.js" />
     <Content Include="Scripts\Vendor\Semantic\themes\default\assets\fonts\icons.svg" />
     <Content Include="Scripts\Vendor\Semantic\themes\default\assets\images\flags.png" />
+    <Content Include="Scripts\Vendor\underscore-min.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
