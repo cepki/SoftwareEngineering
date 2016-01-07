@@ -18,6 +18,7 @@ namespace JoinINN.Infrastructure
         public DbSet<AffinityType> AffinityTypes { get; set; }
         public DbSet<Admin> Admins { get; set; }
         public DbSet<City> Cities { get; set; }
+        public DbSet<Visits> Visitors { get; set; }
 
         IQueryable<AffinityType> IGroupsDataSource.AffinityTypes
         {
@@ -48,6 +49,14 @@ namespace JoinINN.Infrastructure
             get
             {
                 return Admins;
+            }
+        }
+
+        IQueryable<Visits> IGroupsDataSource.Visits
+        {
+            get
+            {
+                return Visitors;
             }
         }
     }

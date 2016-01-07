@@ -14,6 +14,11 @@ namespace JoinINN.Controllers
         public ActionResult Index()
         {
             ViewBag.Title = "Home Page";
+            using (var context = new JoinINN.Infrastructure.GroupsDb())
+            {
+                context.Visitors.First().NumberOfVisits++;
+                context.SaveChanges();
+            }
 
             return View();
         }

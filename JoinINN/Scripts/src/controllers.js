@@ -1,5 +1,5 @@
 ﻿angular.module('joinin')
-.controller('mainController', function ($scope, $http, ngDialog, $rootScope, $cookies) {
+.controller('mainController', function ($scope, $http, ngDialog, $rootScope, $cookies, $location) {
     
     console.log($rootScope.logedRole);
 
@@ -128,7 +128,7 @@
 .controller('homeController', function () {
 })
 
-.controller('secondController', function ($scope, $http) {
+.controller('secondController', function ($scope, $http, $location) {
     var choise = 1;
     var affinities = [];
     $scope.isschool = true.toString();
@@ -173,16 +173,18 @@
             IsAssociation: !($scope.isschool == "true"),
             CityId: $scope.chosenCity.Id,
             AffinityType_Id: choise,
-            photoUrl: $scope.photourl
+            photoUrl: !$scope.newPicture ? $scope.startPicture : $scope.newPicture,
         }
 
 
         $http.post('api/SocialGroupsApi/MakeNewUser', user)
         .success(function () {
             console.log("Uspilo");
+            $location.path("/");
         })
         .error(function () {
-            console.log("Nije uspilo");
+            alert("Doslo je do greske");
+            $location.path("/");
         })
     }
    
@@ -237,6 +239,19 @@
 })
 
 .controller('adminController', function ($scope, $http, $cookies, $location) {
+    $scope.searchedCity = "Sve grupe";
+
+    $http.get('/api/AdminApi/GetAllInformationsForAdmin')
+    .success(function (result) {
+        $scope.informations = result;
+        console.log(result);
+    })
+
+    $scope.changeCity = function(broj)
+    {
+
+    }
+
     var allGroups = [];
 
     $http.get('api/SocialGroupsApi/GetAllGroups')
@@ -300,14 +315,20 @@
         //console.log("KSKKSAKK")
         //console.log(value);
         //console.log(oldPassword);
-        if (value === oldPassword) {
-            //console.log("iste su sifre");
-            $scope.isOldPasswordCorrect = true; //check if is it right
-        }
-        else
-        {
-            $scope.isOldPasswordCorrect = false;  //if password is not defined then for sure it is not oke
-        }
+
+        console.log("ide provjera pasworda");
+        $http.get('api/loginApi/GetHashOfThisPassword/' + value)
+
+        .then(function (result) {
+            if (result.data === oldPassword) {
+                //console.log("iste su sifre");
+                $scope.isOldPasswordCorrect = true; //check if is it right
+            }
+            else {
+                $scope.isOldPasswordCorrect = false;  //if password is not defined then for sure it is not oke
+            }
+        })
+        
     })
 
 

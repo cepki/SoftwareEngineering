@@ -2,23 +2,89 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <title></title>
+    <link rel="stylesheet" type="text/css" href="../css/admin_panel/styles.css" tppabs="http://www.xooom.pl/work/magicadmin/css/styles.css" media="screen" />
+
+    <link href='http://fonts.googleapis.com/css?family=Vollkorn:400,700' rel='stylesheet' type='text/css'>
+
+    <link href="../css/admin.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
-    <table border="1" style="width:100%" ng-repeat="user in groupsToShow">
-        <tr>
-            <td>{{user.GroupName}}</td>
-            <td>{{user.City.Name}}</td>
-            <td><a href="{{user.OfficialWebUrl}}" target="_blank">Službena stranica</a></td>
-            <td><a href="{{user.FacebookPageUrl}}" target="_blank">Facebook</a></td>
-            <td ng-click="Delete(user)">Brisi</td>
+    <div class="grid_7" style="margin-left:30%; margin-right:30%;">
+        <h1><span style="color:white; font-size:45px;"><strong>Podatci</strong></span></h1>
+        <a href="" class="dashboard-module">
+            <img src="/Images/grupa.jpg" tppabs="http://www.xooom.pl/work/magicadmin/images/Crystal_Clear_write.gif" width="64" height="64" alt="edit" />
+            <span>Grupa</span>
+            <span style="margin-top:-3px;">{{informations.Groups}}</span>
+        </a>
 
+        <a href="" class="dashboard-module">
+            <img src="/Images/visit.png" tppabs="http://www.xooom.pl/work/magicadmin/images/Crystal_Clear_file.gif" width="64" height="64" alt="edit" />
+            <span>Posjetitelji</span>
+            <span style="margin-top:-3px;">{{informations.Visitors}}</span>
+        </a>
+
+        <a href="" class="dashboard-module">
+            <img src="/Images/admin.png" tppabs="http://www.xooom.pl/work/magicadmin/images/Crystal_Clear_files.gif" width="64" height="64" alt="edit" />
+            <span>Admini</span>
+            <span style="margin-top:-3px;">{{informations.Admins}}</span>
+        </a>
+    </div>
+    
+
+    <div class="grid_7" style="margin-left:30%; margin-right:30%;">
+        <br />
+        <br />
+        <br />
+        <!--<br />
+        <br />
+        <br />
+        <br />
+        <br />-->
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <h1><span style="color:white; font-size:45px;"><strong>Gradovi</strong></span></h1>
+        <br />
+        <a href="" class="dashboard-module">
+            <img src="/Images/hrvatska.jpg" tppabs="http://www.xooom.pl/work/magicadmin/images/Crystal_Clear_calendar.gif" width="64" height="64" alt="edit" />
+            <span>Hrvatska</span>
+            <span style="margin-top:-3px;">{{informations.Croatia}}</span>
+        </a>
+
+        <a href="" class="dashboard-module">
+            <img src="/Images/zagreb.jpg" tppabs="http://www.xooom.pl/work/magicadmin/images/Crystal_Clear_user.gif" width="64" height="64" alt="edit" />
+            <span>Zahreb</span>
+            <span style="margin-top:-3px;">{{informations.Zagreb}}</span>
+        </a>
+
+        <a href="" class="dashboard-module">
+            <img src="/Images/split.jpg" tppabs="http://www.xooom.pl/work/magicadmin/images/Crystal_Clear_stats.gif" width="64" height="64" alt="edit" />
+            <span>Split</span>
+            <span style="margin-top:-3px;">{{informations.Split}}</span>
+        </a>
+
+        <div style="clear: both"></div>
+    </div>
+
+    <br />
+    <br />
+    <br />
+
+    <h1><span style="color:white; font-size:45px;"><strong>Grupe {{searchedCity}}</strong></span></h1>
+
+    <table border="1" style="width:100%; color:black; background-color:white; opacity:0.85; table-layout:fixed;" ng-repeat="user in groupsToShow">
+        <tr>
+            <td style="text-align:center">{{user.Name}}</td>
+            <td style="text-align:center">{{user.City.Name}}</td>
+            <td style="text-align:center"><a href="{{user.OfficialWebUrl}}" target="_blank">Službena stranica</a></td>
+            <td style="text-align:center"><a href="{{user.FacebookPageUrl}}" target="_blank">Facebook</a></td>
+            <td style="text-align:center" ng-click="Delete(user)">Brisi</td>
         </tr>
     </table>
-
-
-    <hr />
-    <hr />
-
 
 </body>
 </html>

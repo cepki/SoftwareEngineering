@@ -16,8 +16,6 @@
 
         protected override void Seed(JoinINN.Infrastructure.GroupsDb context)
         {
-            var mySHA256 = SHA256Managed.Create();
-
             var afinityTypes = new[]
             {
                 new AffinityType { Id = 0, Name = "Sport" },
@@ -53,6 +51,9 @@
                 new SocialGroup { Name = "Udruga za autizam Zagreb", EmailAddress = "uaz.zagreb@gmail.com", Password = sha256_hash("12345678"), ContactNumber = "0953001555", OfficialWebUrl="http://www.autizam-zagreb.com/", FacebookPageUrl="https://www.facebook.com/autizam.zg/?fref=ts", Description="Misija Udruge za autizam – Zagreb je zaštita i promicanje prava i poboljšanje kvalitete života osoba s autizmom na području Grada Zagreba i Zagrebačke županije.", IsSchool=false, IsAssociation=true, photoUrl="http://www.autizam-suzah.hr/images/clanice_logo/Logo_-_Zagreb_-_Zagreb.jpg", AffinityType=afinityTypes[7], City=cities[1]  }
             };
 
+            var visitors = new Visits { NumberOfVisits = 10 };
+
+            context.Visitors.Add(visitors);
             context.Admins.AddRange(admins);
             context.AffinityTypes.AddRange(afinityTypes);
             context.Cities.AddRange(cities);

@@ -6,6 +6,9 @@ using System.Net.Http;
 using System.Web.Http;
 using JoinINN.Repository;
 using DataStorage;
+using System.Security.Cryptography;
+using System.Text;
+using JoinINN.Models;
 
 namespace JoinINN.Controllers.api
 {
@@ -25,6 +28,7 @@ namespace JoinINN.Controllers.api
         {
             try
             {
+                newUser.Password = sha256_hash(newUser.Password);
                 //var dataUser = UserMapper.Map(newUser);
                 //var idsOfAffinities = newUser.AffinityTypes.Select(x => x.Id).ToList<int>();
                 groupsRepository.AddNewGroup(newUser);
@@ -61,6 +65,7 @@ namespace JoinINN.Controllers.api
             {
                 //var dataUser = UserMapper.Map(newUser);
                 //var idsOfAffinities = newUser.AffinityTypes.Select(x => x.Id).ToList<int>();
+                editedUser.Password = sha256_hash(editedUser.Password);
                 groupsRepository.EditUser(editedUser);
                 var response = this.Request.CreateResponse(HttpStatusCode.Created, true);
                 return response;
@@ -72,5 +77,17 @@ namespace JoinINN.Controllers.api
             }
         }
 
+        public static String sha256_hash(String value)
+        {
+            using (SHA256 hash = SHA256Managed.Create())
+            {
+                return String.Join("", hash
+                  .ComputeHash(Encoding.UTF8.GetBytes(value))
+                  .Select(item => item.ToString("x2")));
+            }
+        }
+
+
+        
     }
 }

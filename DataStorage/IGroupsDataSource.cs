@@ -12,5 +12,6 @@ namespace DataStorage
         IQueryable<SocialGroup> SocialGroups { get; }
         IQueryable<AffinityType> AffinityTypes { get; }
         IQueryable<Admin> Admins { get; }
+        IQueryable<Visits> Visits { get; }
     }
 }
