@@ -66,14 +66,15 @@
 
         </div>
         <div id="informations" >
-            <h3>{{userToShowForFirst.Name}}</h3>
-            <h4>{{userToShowForFirst.Purpose}}</h4>
-            <ul id="banlist">
+            <h3>{{userToShowForFirst.Description}}</h3>
+            <!--<p class="description" style="margin-top:10px">{{userToShowForFirst.Description}}</p>-->
+            <ul id="banlist" style="margin-top:30px; margin-left: 0px;">
                 <li>{{userToShowForFirst.City.Name}}</li>
                 <li>{{userToShowForFirst.AffinityType.Name}}</li>
                 <!--<li>Asset and style allocation</li>-->
-            </ul>
-            <a href="#" id="banbut">Learn More</a>
+            </ul>   
+            <a href="{{userToShowForFirst.OfficialWebUrl}}" target="_blank" class="banbut" style="margin-left: -120px;">Službena stranica</a>
+            <a href="{{userToShowForFirst.FacebookPageUrl}}" target="_blank" class="banbut" style="margin-left: 50px">Facebook stranica</a>
             <div class="clear"></div>
         </div>
     </div>

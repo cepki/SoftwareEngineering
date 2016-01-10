@@ -238,7 +238,7 @@
     })
 })
 
-.controller('adminController', function ($scope, $http, $cookies, $location, _) {
+.controller('adminController', function ($scope, $http, $cookies, $location) {
     $scope.searchedCity = "Sve grupe";
     $http.get('/api/AdminApi/GetAllInformationsForAdmin')
     .success(function (result) {
