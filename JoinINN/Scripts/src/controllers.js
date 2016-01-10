@@ -6,10 +6,10 @@
     $scope.userToShowForFirst = {
         photoUrl: "http://www.seven46.com/wp-content/uploads/2014/08/JoinIN.jpg",
         Name: "JoinIn",
-        Purpose: "Povezati mlade",
+        Description: "Uključi seje online servis stvoren s ciljem da olakša studentima pronalazak udruga i škola u čije bi se aktivnosti željeli uključiti.",
         City: { Name: "Povezimo mlade" },
         AffinityType: { Name: "Podijelimo znanje" },
-
+        EmailAddress: "JoinIn@gmail.com",
     };
 
     $scope.limit = 4;

@@ -41,20 +41,21 @@
     }
 </style >
 <body>
+    <div style="background-color:white; opacity:0.85;">
+        <div class="custom-dropdown big" style="margin-left:24%">
+            <select ng-model="chosenCity" ng-options="city.Name for city in allCities" required></select>
+            <br />
+        </div>
 
-    <div class="custom-dropdown big" style="margin-left:24%">
-        <select ng-model="chosenCity" ng-options="city.Name for city in allCities" required></select>
-        <br />
+        <div class="custom-dropdown big">
+            <select ng-model="chosenAffinity" ng-options="affinity.Name for affinity in allAffinities" required></select>
+            <br />
+        </div>
+
+        <input id="search-input" type="text" placeholder="Unesite ime za pretragu" ng-model="searchedText" />
+
+        <span ng-click="FindWithThisCondition()" class="glyphicon glyphicon-search"></span>
     </div>
-
-    <div class="custom-dropdown big">
-        <select ng-model="chosenAffinity" ng-options="affinity.Name for affinity in allAffinities" required></select>
-        <br />
-    </div>
-
-    <input id="search-input" type="text" placeholder="Unesite ime za pretragu" ng-model="searchedText" />
-
-    <span ng-click="FindWithThisCondition()" class="glyphicon glyphicon-search"></span>
     <!--<input type="button" value="Pretrazi" ng-click="FindWithThisCondition()" />-->
 
     <br />
@@ -66,15 +67,16 @@
 
         </div>
         <div id="informations" >
-            <h3>{{userToShowForFirst.Description}}</h3>
+            <h3 style="padding-bottom: 15px;">{{userToShowForFirst.Description}}</h3>
             <!--<p class="description" style="margin-top:10px">{{userToShowForFirst.Description}}</p>-->
-            <ul id="banlist" style="margin-top:30px; margin-left: 0px;">
+            <ul id="banlist" style=" margin-left: 0px;">
                 <li>{{userToShowForFirst.City.Name}}</li>
                 <li>{{userToShowForFirst.AffinityType.Name}}</li>
                 <!--<li>Asset and style allocation</li>-->
             </ul>   
-            <a href="{{userToShowForFirst.OfficialWebUrl}}" target="_blank" class="banbut" style="margin-left: -120px;">Službena stranica</a>
-            <a href="{{userToShowForFirst.FacebookPageUrl}}" target="_blank" class="banbut" style="margin-left: 50px">Facebook stranica</a>
+            <a href="{{userToShowForFirst.OfficialWebUrl}}" target="_blank" class="banbut" style="margin-left: -120px; margin-top: -30px;">Službena stranica</a>
+            <a href="{{userToShowForFirst.FacebookPageUrl}}" target="_blank" class="banbut" style="margin-left: 50px; margin-top: -30px;" >Facebook stranica</a>
+            <p class="email"><strong>Email</strong>&nbsp;{{userToShowForFirst.EmailAddress}}</p>
             <div class="clear"></div>
         </div>
     </div>
